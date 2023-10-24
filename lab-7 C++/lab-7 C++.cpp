@@ -462,7 +462,7 @@ void Task_5_2()
 		sum += number;
 		product *= number;
 
-		cout << "Please enter another number? (y/n): ";
+		cout << "Do you want enter one more number? (y/n): ";
 		cin >> answer;
 
 		if (answer != 'y' && answer != 'Y') 
@@ -497,7 +497,8 @@ void Task_10_Case_1()
 	cout << "Enter a number (1-7) to represent the day of the week: ";
 	cin >> day;
 
-	switch (day) {
+	switch (day - 1) 
+	{
 	case 1:
 		cout << "Monday";
 		break;
@@ -526,7 +527,7 @@ void Task_10_Case_1()
 
 void Task_10_Case_2()
 {
-	char day = 'W'; // Приклад: 'W' представляє середу
+	char day = 'W';
 
 	switch (day) {
 	case 'M':
@@ -563,9 +564,8 @@ void Task_10_Case_3()
 	cout << "Enter a number (1-7) to represent the day of the week: ";
 	cin >> dayInput;
 
-	// Перевіряємо, чи введене значення знаходиться в межах від 1 до 7
-	if (dayInput >= 1 && dayInput <= 7) {
-		// Приводимо введене значення до перерахування Day
+	if (dayInput >= 1 && dayInput <= 7) 
+	{
 		Day day = static_cast<Day>(dayInput - 1);
 
 		switch (day) {
@@ -592,7 +592,8 @@ void Task_10_Case_3()
 			break;
 		}
 	}
-	else {
+	else 
+	{
 		cout << "Invalid input. Please enter a number between 1 and 7.";
 	}
 }
@@ -625,28 +626,28 @@ string Task_11()
 	}
 }
 
-// Функція для визначення терміну служби електричної лампочки
+
 int Task_12(int power)
 {
-	if (power == 25) 
+	if (power < 40)
 	{
 		return 2500;
 	}
-	else if (power == 40 || power == 60) 
+	else if (power <= 60)
 	{
 		return 1000;
 	}
-	else if (power == 75 || power == 100) 
+	else if (power <= 150)
 	{
 		return 750;
 	}
-	else if (power == 150 || power == 200) 
+	else if (power <= 200)
 	{
 		return 500;
 	}
-	else 
+	else
 	{
-		return -1; // Повертаємо -1 як помилку для невірної потужності
+		return -1;
 	}
 }
 
@@ -656,99 +657,128 @@ int main()
 
 	// Task_1
 	{
+		cout << "Task_1\n";
+
 		for (int x = 0; x < 100; x++)
 		{
 			cout << x << " ";
 		}
+		cout << "\n";
 	}
 	
 	
 	// Task_3
 
 	{
+		cout << "Task_3_1\n";
+
 		for (int i = 100; i <= 200; i += 2)
 		{
 			cout << i << " ";
 		}
+		cout << "\n";
 	}
 	
 	{
+		cout << "Task_3_2\n";
 		int i = 100;
 		while (i <= 200)
 		{
 			cout << i << " ";
 			i += 2;
 		}
+		cout << "\n";
 	}
 	
 	{
+		cout << "Task_3_3\n";
 		int i = 100;
 		do
 		{
 			cout << i << " ";
 			i += 2;
 		} while (i <= 200);
+		cout << "\n";
 	}
 	
 
 	//Task4
+	cout << "Task_4\n";
+	{
+		int lowerLimit = 1;
+		int upperLimit = 100;
 
-	//Напишіть програму для введення числа із заданого діапазону з клавіатури.У разі виходу за кордон діапазону повторіть введення номера.
+		int userNumber = Task_4(lowerLimit, upperLimit);
 
-	int lowerLimit = 1;  // Нижня межа діапазону
-	int upperLimit = 100;  // Верхня межа діапазону
+		cout << "you entered correct number " << userNumber << endl;
+		cout << "\n";
 
-	int userNumber = Task_4(lowerLimit, upperLimit);
-
-	cout << "you entered correct number " << userNumber << endl;
-
+	}
+	
 	//Task_5
 	//a)	кількість чисел попередньо вводиться із клавіатури;
+	cout << "Task_5_1\n";
 	Task_5();
+	cout << "\n";
 	//b)	обчислення припиняються на запит програми.
+	cout << "Task_5_2\n";
 	Task_5_2();
+	cout << "\n";
 
 	//Task6
 
 	{
+		cout << "Task_6\n";
 		int counter = 0;
 		while (counter < 10)
 		{
 			counter++;
 		}
+		cout << "\n";
+
 	}
 		
 	// Task_7
 
+	cout << "Task_7\n";
 	int counter; 
 	for (counter = 0; counter < 10; counter++) { cout << counter << " "; }
+	cout << "\n";
 
 	//Task_8
-
+	cout << "Task_8\n";
 	Task_8();
+	cout << "\n";
 
 	//Task_9
+	cout << "Task_9\n";
+	cout << "\n";
 
 
 	//Task_10
-
+	cout << "Task_10_1\n";
 	Task_10_Case_1();
+	cout << "\n";
 
+	cout << "Task_10_2\n";
 	Task_10_Case_2();
+	cout << "\n";
 
+	cout << "Task_10_3\n";
 	Task_10_Case_3();
+	cout << "\n";
 
 	//Task_11
-
+	cout << "Task_11\n";
 	cout << Task_11();
-
+	cout << "\n";
 	//Task_12
 
+	cout << "Task_12\n";
 	int power;
 	cout << "Enter the power of the bulb, W: ";
 	cin >> power;
 
-	// Визначення та виведення терміну служби лампочки
 	int lifespan = Task_12(power);
 
 	if (lifespan != -1) 
@@ -759,8 +789,10 @@ int main()
 	{
 		cout << "Invalid power input" << endl;
 	}
+	cout << "\n";
 
 	//Task 13
+	cout << "Task_13\n";
 
 	int variable = 2;
 
@@ -773,4 +805,5 @@ int main()
 		cout << "Other\n";
 		break;
 	}
+	cout << "\n";
 }
